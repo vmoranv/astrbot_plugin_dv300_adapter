@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DV300 Adapter Plugin Config",
+  "type": "object",
+  "properties": {
+    "note": {
+      "type": "string",
+      "default": "平台级配置请在 AstrBot 平台适配器配置页填写（dv300）。"
+    }
+  }
+}
