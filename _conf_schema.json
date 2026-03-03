@@ -1,11 +1,97 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "DV300 Adapter Plugin Config",
-  "type": "object",
-  "properties": {
-    "note": {
-      "type": "string",
-      "default": "平台级配置请在 AstrBot 平台适配器配置页填写（dv300）。"
-    }
+  "local_bind_ip": {
+    "description": "本地 UDP 监听 IP",
+    "type": "string",
+    "default": "0.0.0.0"
+  },
+  "local_bind_port": {
+    "description": "本地 UDP 监听端口",
+    "type": "int",
+    "default": 19091
+  },
+  "device_ip": {
+    "description": "设备端 IP",
+    "type": "string",
+    "default": "127.0.0.1"
+  },
+  "device_port": {
+    "description": "设备端口",
+    "type": "int",
+    "default": 19090
+  },
+  "self_id": {
+    "description": "平台机器人 ID",
+    "type": "string",
+    "default": "dv300_bot"
+  },
+  "emit_system_events": {
+    "description": "是否把 heartbeat/capability 等系统报文当消息提交（建议关闭）",
+    "type": "bool",
+    "default": false
+  },
+  "emit_media_events": {
+    "description": "当 ASR/图片不可用时，是否回退上报媒体摘要文本",
+    "type": "bool",
+    "default": false
+  },
+  "startup_query_capability": {
+    "description": "启动后自动查询设备能力",
+    "type": "bool",
+    "default": true
+  },
+  "enable_voice_asr": {
+    "description": "启用音频帧 ASR 转写",
+    "type": "bool",
+    "default": true
+  },
+  "asr_api_base": {
+    "description": "ASR API 基址（OpenAI 兼容）",
+    "type": "string",
+    "default": "https://api.openai.com/v1"
+  },
+  "asr_api_key": {
+    "description": "ASR API Key（为空则不转写）",
+    "type": "string",
+    "default": ""
+  },
+  "asr_model": {
+    "description": "ASR 模型名",
+    "type": "string",
+    "default": "whisper-1"
+  },
+  "asr_language": {
+    "description": "ASR 语言（例如 zh/en）",
+    "type": "string",
+    "default": "zh"
+  },
+  "voice_segment_ms": {
+    "description": "音频分段时长（毫秒）",
+    "type": "int",
+    "default": 1800
+  },
+  "voice_min_bytes": {
+    "description": "触发 ASR 的最小音频字节数",
+    "type": "int",
+    "default": 3200
+  },
+  "voice_max_bytes": {
+    "description": "强制切段的最大音频字节数",
+    "type": "int",
+    "default": 32000
+  },
+  "enable_camera_multimodal": {
+    "description": "将图片帧转换为 Image 组件提交多模态",
+    "type": "bool",
+    "default": true
+  },
+  "camera_emit_interval_ms": {
+    "description": "图片上报最小间隔（毫秒）",
+    "type": "int",
+    "default": 5000
+  },
+  "camera_prompt": {
+    "description": "图片帧提交给模型时附带的提示词",
+    "type": "string",
+    "default": "请描述这张图片中的内容。"
   }
 }

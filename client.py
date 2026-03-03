@@ -33,6 +33,7 @@ class Dv300Protocol:
     MSG_ACK = 4
     MSG_ERROR = 5
     MSG_CAPABILITY = 6
+    MSG_TEXT = 7
     MSG_CAMERA_FRAME = 10
     MSG_AUDIO_FRAME = 11
 
@@ -43,6 +44,11 @@ class Dv300Protocol:
     CMD_START_MIC = 4
     CMD_STOP_MIC = 5
     CMD_QUERY_CAPABILITY = 6
+    CMD_CAPTURE_SNAPSHOT = 7
+
+    CAMERA_FMT_UNKNOWN = 0
+    CAMERA_FMT_JPEG = 1
+    CAMERA_FMT_PNG = 2
 
     HEADER_FMT = "<IHHIII"
     HEADER_SIZE = struct.calcsize(HEADER_FMT)
